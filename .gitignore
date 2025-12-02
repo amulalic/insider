@@ -1,0 +1,69 @@
+### Python ###
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Setup and Packaging
+dist/
+build/
+*.egg-info/
+.installed.cfg
+htmlcov/
+.tox/
+
+# Virtual Environment
+# The virtual environment folder is crucial to ignore.
+# Common names are 'venv', '.venv', or 'env'.
+venv/
+.venv/
+env/
+
+# IDE/Editor Folders and Files (Choose those you use)
+.idea/             # JetBrains (PyCharm, IntelliJ, etc.)
+*.iml
+.vscode/           # VS Code
+*~                 # Vim/Emacs swap files
+.DS_Store          # macOS generated files
+
+### Test Automation & Selenium Specific ###
+
+# Log files
+# Ignore any logs generated during test execution
+*.log
+logs/
+test_logs/
+
+# Test Reports and Artifacts
+# Ignore generated reports (HTML, XML, JSON)
+# Common for pytest-html, allure, etc.
+test-report/
+report/
+reports/
+target/            # Common Maven/Java convention, sometimes adopted
+*.html
+*.xml
+*.json
+
+# Downloaded files/Drivers
+# Ignore the drivers used by Selenium (e.g., chromedriver, geckodriver)
+# and any files downloaded during tests (e.g., pdfs, images)
+drivers/
+browser_drivers/
+downloaded_files/
+tmp/
+*.crdownload
+*.part
+
+# Configuration Files (If they contain sensitive data)
+# Only ignore if these files contain API keys, passwords, or secrets.
+# If they are generic configs, you might want to track them.
+# .env files are common for secrets.
+.env
+.flaskenv
+secrets.py
+config_local.py
+
+screenshots/
