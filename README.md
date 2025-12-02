@@ -7,6 +7,7 @@ A Python-based automated testing framework for validating Insider Careers Page a
 - Python 3.8+
 - pip
 - Chrome/Firefox browser (for UI tests)
+- JMeter
 
 ## Installation
 
@@ -71,9 +72,5 @@ pytest -v
 ### Pet API Endpoint
 - CRUD operations (Create, Read, Update, Delete)
 
-## Reporting
-
-Test reports are generated in the `reports/` directory. Open `reports/report.html` in your browser to view detailed test results.
-
-## JMeter
-The test plan file (.jmx) and test data file (.csv) are located in `jmeter` folder.
+### Search module on n11.com
+- Load tests for search module
