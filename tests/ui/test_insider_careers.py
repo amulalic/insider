@@ -2,7 +2,6 @@ import pytest
 from pages.home_page import HomePage
 from pages.careers_page import CareersPage
 from pages.qa_jobs_page import QAJobsPage
-import time
 
 
 def test_insider_careers(driver):
