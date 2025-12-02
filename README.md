@@ -29,6 +29,7 @@ insider/
 │   └── api/                   # API tests for Pet endpoint
 ├── bugs/                      # Video recordings of bugs found
 ├── config/                    # Configuration files
+├── api/                       # API Object Models
 ├── pages/                     # Page Object Models
 ├── utils/                     # Helper functions and utilities
 ├── reports/                   # Generated test reports
