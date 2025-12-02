@@ -17,6 +17,9 @@ class BasePage:
     def wait_for_element_to_be_clickable(self, locator):
         return self.wait.until(EC.element_to_be_clickable(locator))
 
+    def wait_for_element_to_be_visible(self, locator):
+        return self.wait.until(EC.visibility_of_element_located(locator))
+
     def click(self, locator):
         element = self.wait_for_element_to_be_clickable(locator)
         element.click()
@@ -65,11 +68,8 @@ class BasePage:
                 lambda driver: driver.execute_script(
                     """
                     let scrollingElement = document.scrollingElement || document.documentElement;
-                    
                     let initialScrollY = scrollingElement.scrollTop;
-
                     let currentScrollY = window.scrollY || document.documentElement.scrollTop;
-                    
                     return currentScrollY;
                     """
                 )
@@ -93,11 +93,8 @@ class BasePage:
                 lambda driver: driver.execute_script(
                     """
                     let scrollingElement = document.scrollingElement || document.documentElement;
-                    
                     let initialScrollY = scrollingElement.scrollTop;
-
                     let currentScrollY = window.scrollY || document.documentElement.scrollTop;
-                    
                     return currentScrollY;
                     """
                 )
@@ -123,3 +120,8 @@ class BasePage:
         windows = self.driver.window_handles
         if len(windows) > window_index:
             self.driver.switch_to.window(windows[window_index])
+
+    def wait_for_text_to_be_present_in_attribute(self, locator, text, attribute):
+        self.wait.until(
+            EC.text_to_be_present_in_element_attribute(locator, attribute, text)
+        )

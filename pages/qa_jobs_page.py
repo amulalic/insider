@@ -1,7 +1,6 @@
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
 from pages.base_page import BasePage
+from config.config import ConfigUI
 import time
 
 
@@ -10,6 +9,7 @@ class QAJobsPage(BasePage):
     SEE_ALL_QA_JOBS_BUTTON = (By.LINK_TEXT, "See all QA jobs")
     LOCATION_FILTER = (By.ID, "select2-filter-by-location-container")
     DEPARTMENT_FILTER = (By.ID, "select2-filter-by-department-container")
+    JOB_COUNT = (By.ID, "deneme")
     JOB_LIST = (By.CSS_SELECTOR, ".position-list-item")
     DEPARTMENT_SEARCH = (By.XPATH, "//li[text()='Quality Assurance']")
     POSITION_TITLE = (By.CSS_SELECTOR, ".position-title")
@@ -19,13 +19,10 @@ class QAJobsPage(BasePage):
 
     def __init__(self, driver):
         super().__init__(driver)
-        self.wait = WebDriverWait(driver, 30)
-        self.url = "https://useinsider.com/careers/quality-assurance/"
+        self.url = ConfigUI.QA_CAREERS_URL
 
-    def wait_for_count_to_stabilize(
-        self, element_id="deneme", stability_duration=3, timeout=30
-    ):
-        element = self.wait.until(EC.presence_of_element_located((By.ID, element_id)))
+    def wait_for_count_to_stabilize(self, stability_duration=3, timeout=30):
+        element = self.find_element(self.JOB_COUNT)
 
         start_time = time.time()
         last_value = None
@@ -47,7 +44,7 @@ class QAJobsPage(BasePage):
             time.sleep(0.1)
 
         raise TimeoutError(
-            f"Element #{element_id} did not stabilize within {timeout} seconds"
+            f"Element #{self.JOB_COUNT[1]} did not stabilize within {timeout} seconds"
         )
 
     def open(self):
@@ -63,10 +60,8 @@ class QAJobsPage(BasePage):
         self.find_elements(self.JOB_LIST)
 
     def wait_for_deparment_filter_population(self):
-        self.wait.until(
-            EC.text_to_be_present_in_element_attribute(
-                self.DEPARTMENT_FILTER, "title", "Quality Assurance"
-            )
+        self.wait_for_text_to_be_present_in_attribute(
+            self.DEPARTMENT_FILTER, "Quality Assurance", "title"
         )
 
     def filter_by_location(self, location):

@@ -1,6 +1,6 @@
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support import expected_conditions as EC
 from pages.base_page import BasePage
+from config.config import ConfigUI
 
 
 class HomePage(BasePage):
@@ -11,7 +11,7 @@ class HomePage(BasePage):
 
     def __init__(self, driver):
         super().__init__(driver)
-        self.url = "https://useinsider.com/"
+        self.url = ConfigUI.BASE_URL
 
     def open(self):
         self.navigate_to(self.url)

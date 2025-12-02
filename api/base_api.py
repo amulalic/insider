@@ -1,12 +1,12 @@
 import requests
-from config.config import Config
+from config.config import ConfigApi
 
 
 class BaseAPI:
     def __init__(self):
-        self.base_url = Config.BASE_URL
-        self.timeout = Config.TIMEOUT
-        self.headers = Config.HEADERS
+        self.base_url = ConfigApi.BASE_URL
+        self.timeout = ConfigApi.TIMEOUT
+        self.headers = ConfigApi.HEADERS
         self.session = requests.Session()
 
     def get(self, endpoint, params=None, **kwargs):

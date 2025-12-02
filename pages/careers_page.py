@@ -1,6 +1,4 @@
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
 from pages.base_page import BasePage
 
 
@@ -13,7 +11,6 @@ class CareersPage(BasePage):
 
     def __init__(self, driver):
         super().__init__(driver)
-        self.wait = WebDriverWait(driver, 30)
 
     def is_opened(self):
         self.wait_for_url_contains("careers")
@@ -25,7 +22,7 @@ class CareersPage(BasePage):
     def is_locations_block_visible(self):
         try:
             self.scroll_to_element_by_locator(self.LOCATIONS_BLOCK)
-            self.wait.until(EC.visibility_of_element_located(self.LOCATIONS_BLOCK))
+            self.wait_for_element_to_be_visible(self.LOCATIONS_BLOCK)
             return True
         except:
             return False
@@ -33,7 +30,7 @@ class CareersPage(BasePage):
     def is_teams_block_visible(self):
         try:
             self.scroll_to_element_by_locator(self.TEAMS_BLOCK)
-            self.wait.until(EC.visibility_of_element_located(self.TEAMS_BLOCK))
+            self.wait_for_element_to_be_visible(self.TEAMS_BLOCK)
             return True
         except:
             return False
@@ -41,9 +38,7 @@ class CareersPage(BasePage):
     def is_life_at_insider_block_visible(self):
         try:
             self.scroll_to_element_by_locator(self.LIFE_AT_INSIDER_BLOCK)
-            self.wait.until(
-                EC.visibility_of_element_located(self.LIFE_AT_INSIDER_BLOCK)
-            )
+            self.wait_for_element_to_be_visible(self.LIFE_AT_INSIDER_BLOCK)
             return True
         except:
             return False
