@@ -24,19 +24,19 @@ pip install -r requirements.txt
 
 ```
 insider/
-├── tests/
-│   ├── ui/                    # UI tests for Insider Careers page
-│   └── api/                   # API tests for Pet endpoint
+├── api/                       # API Object Models
 ├── bugs/                      # Video recordings of bugs found
 ├── config/                    # Configuration files
-├── api/                       # API Object Models
-├── pages/                     # Page Object Models
-├── utils/                     # Helper functions and utilities
-├── reports/                   # Generated test reports
-├── screenshots/               # Screenshots of failed tests
 ├── jmeter/                    # JMeter files
 │   ├── *.jmx                  # JMeter test plan file
 │   └── *.csv                  # Test data for JMeter
+├── pages/                     # Page Object Models
+├── reports/                   # Generated test reports
+├── screenshots/               # Screenshots of failed tests
+├── tests/
+│   ├── api/                   # API tests for Pet endpoint
+│   └── ui/                    # UI tests for Insider Careers page
+├── utils/                     # Helper functions and utilities
 ├── requirements.txt
 └── README.md
 ```
