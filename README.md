@@ -1,4 +1,4 @@
-# Testing Framework - Insider Careers Page & Pet API Endpoint
+# Insider Testing Framework
 
 A Python-based automated testing framework for validating Insider Careers Page and Pet API endpoint.
 
@@ -6,6 +6,7 @@ A Python-based automated testing framework for validating Insider Careers Page a
 
 - Python 3.8+
 - pip
+- Chrome/Firefox browser (for UI tests)
 
 ## Installation
 
@@ -16,6 +17,26 @@ cd insider
 
 # Install dependencies
 pip install -r requirements.txt
+```
+
+## Project Structure
+
+```
+insider/
+├── tests/
+│   ├── ui/                    # UI tests for Insider Careers page
+│   └── api/                   # API tests for Pet endpoint
+├── bugs/                      # Video recordings of bugs found
+├── config/                    # Configuration files
+├── pages/                     # Page Object Models
+├── utils/                     # Helper functions and utilities
+├── reports/                   # Generated test reports
+├── screenshots/               # Screenshots of failed tests
+├── jmeter/                    # JMeter files
+│   ├── *.jmx                  # JMeter test plan file
+│   └── *.csv                  # Test data for JMeter
+├── requirements.txt
+└── README.md
 ```
 
 ## Running Tests

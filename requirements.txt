@@ -1,4 +1,6 @@
 ###### Requirements without Version Specifiers ######
 pytest
+selenium
 requests
 pytest-html
+webdriver-manager
